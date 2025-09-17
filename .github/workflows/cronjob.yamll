@@ -1,0 +1,22 @@
+name: Hours based Scheduled Job
+
+on:
+  schedule:
+    - cron: '0 * * * *' 
+  workflow_dispatch: 
+
+jobs:
+  run-hourly-task:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create a files and list script
+        run: |
+          echo "Running scheduled task..."
+          chmod +x myscript.sh
+          ./myscript.sh > script_output.txt 2>&1
+      - name: Upload output as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: myscript-output   
+          path: script_output.txt
