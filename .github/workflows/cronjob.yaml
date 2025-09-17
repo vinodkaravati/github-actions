@@ -3,7 +3,7 @@ name: Hours based Scheduled Job
 on:
   push: 
   schedule:
-    - cron: '5 * * * *' 
+    - cron: '* 1 * * *' 
 
 jobs:
   run-hourly-task:
