@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Create a files and list script
         run: |
-          echo "Running scheduled task..."
+          echo "Running scheduled cron job..."
           chmod +x myscript.sh
           ./cron_script.sh > cron_script_output.txt 2>&1
       - name: Upload output as artifact
