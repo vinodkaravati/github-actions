@@ -14,9 +14,9 @@ jobs:
         run: |
           echo "Running scheduled task..."
           chmod +x myscript.sh
-          ./myscript.sh > script_output.txt 2>&1
+          ./cron_script.sh > cron_script_output.txt 2>&1
       - name: Upload output as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: myscript-output   
-          path: script_output.txt
+          name: cron_script_output   
+          path: cron_script_output.txt
