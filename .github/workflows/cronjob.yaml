@@ -1,7 +1,7 @@
 name: Hours based Scheduled Job
 
 on:
-  workflow_dispatch: 
+  push: 
   schedule:
     - cron: '0 * * * *' 
 
