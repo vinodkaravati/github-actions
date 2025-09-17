@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "Running scheduled cron job..."
           chmod +x cron_script.sh
-          ./cron_script.sh > cron_script_output.txt 2>&1
+          sh cron_script.sh > cron_script_output.txt 2>&1
       - name: Upload output as artifact
         uses: actions/upload-artifact@main
         with:
