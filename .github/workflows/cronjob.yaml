@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@main
+        
       - name: Create a files and list script
         run: |
           echo "Running scheduled cron job..."
-          chmod +x ./cron_script.sh
+          chmod +x cron_script.sh
           ./cron_script.sh > cron_script_output.txt 2>&1
       - name: Upload output as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@main
         with:
           name: cron_script_output   
           path: cron_script_output.txt
