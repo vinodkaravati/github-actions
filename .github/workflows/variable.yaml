@@ -1,0 +1,15 @@
+
+
+name: Using Variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  show-vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print variable
+        run: echo "Environment is ${{ vars.APP_ENV }}"
+      - name: Print version
+        run: echo "Environment is ${{ vars.VERSION }}"

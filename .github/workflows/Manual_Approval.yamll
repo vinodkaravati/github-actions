@@ -1,0 +1,21 @@
+name: Deploy with Approval
+
+on: [push]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+     
+    steps:
+      - name: testing to DEV
+        run: echo "testing to DEV..."
+
+
+ 
+  deploy:
+    runs-on: ubuntu-latest
+    environment: DEV   
+    steps:
+      - name: Deploy to DEV
+        run: echo "Deploying to DEV..."

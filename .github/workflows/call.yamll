@@ -1,0 +1,23 @@
+# name: Caller Workflow
+
+# on:
+#   push:
+#     branches:
+#       - main  
+
+# jobs:
+#   call-reusable:
+#     uses: ./.github/workflows/reusable.yaml
+
+
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main    #your commiting into the local repository
+
+jobs:
+  call-reusable:
+    uses: shaik-byte/dummy-reusable/.github/workflows/reusable.yaml@main #your refering the branch from another repo
+    

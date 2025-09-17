@@ -1,0 +1,15 @@
+
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Run Tests
+        run: |
+          echo "Running tests for the PR and testing the commit #${{ github.event.number }}"

@@ -1,0 +1,76 @@
+# name: Uses Example
+
+# on: [push]
+
+# jobs:
+#   example:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout the repository
+#         uses: actions/checkout@v4  
+
+
+
+# name: With Example - Checkout
+
+# on: [push]
+
+# jobs:
+#   example:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout a specific branch
+#         uses: actions/checkout@v4   #reusable workflow
+#         with:       #input perameter
+#           ref: 'main'   
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:              #input perameter
+#           node-version: '18'
+
+
+# name: Continue-on-error Example
+
+# on: [push]
+
+# jobs:
+#   example:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: This step may fail but won't stop workflow
+#         run: exit 1  
+#         continue-on-error: false
+#       - name: Next step still runs
+#         run: echo "Workflow continues even if previous failed"
+
+
+
+# name: Timeout Example
+
+# on: [push]
+
+# jobs:
+#   example:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 1   
+#     steps:
+#       - name: Long running script
+#         run: sleep 30  
+
+
+name: Conditional statement
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Always runs
+        run: echo "This step runs always"
+
+      - name: Runs only on main branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "This step runs only on main"
+
+

@@ -1,0 +1,21 @@
+name: Run Script and Save Artifact
+
+on: [push]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run myscript.sh and capture output
+        run: |
+          chmod +x myscript.sh
+          ./myscript.sh > script_output.txt 2>&1
+
+      - name: Upload output as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: myscript-output   
+          path: script_output.txt

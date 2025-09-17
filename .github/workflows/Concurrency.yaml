@@ -1,0 +1,26 @@
+name: Concurrency Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  single-job:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: demo-deploy
+      cancel-in-progress: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run script
+        run: |
+          echo "Running workflow for commit $GITHUB_SHA"
+          sleep 30
+          echo "Finished workflow for commit $GITHUB_SHA"
+
+          
+
+          

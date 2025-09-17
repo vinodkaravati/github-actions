@@ -1,0 +1,13 @@
+name: Simple Reusable Workflow
+
+on:
+  workflow_call:   
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print static message
+        run: echo "Hello from reusable workflow!"
+
+      - name: Printing this from reusable.yaml file
+        run: echo "Printing this from reusable.yaml file"

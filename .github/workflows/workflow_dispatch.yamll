@@ -1,0 +1,11 @@
+name: Manual Trigger Example
+
+on:
+  workflow_dispatch:   
+
+jobs:
+  run-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "This workflow was manually triggered!"

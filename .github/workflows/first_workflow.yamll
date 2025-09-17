@@ -1,0 +1,55 @@
+name: my first workflow
+on: 
+  push:
+   branches:
+         - '*'
+env:
+  NAME: Vinod  #workflow level variables
+  AGE: "34"
+
+jobs:
+  first_job:
+      runs-on: ubuntu-latest
+      env:
+        NAME_2: Shaik  #Job level variables
+        AGE_2: "29"
+      steps:
+          # - name: prnitng shell script
+          #   run: echo "Hi I am Vinod"
+          # - name: printing second shell script
+          #   run: whoami
+          - name: printing name and age
+            run: echo "My name is $NAME and age is $AGE"
+          - name: printing name and age
+            run: echo "My name is $NAME_2 and age is $AGE_2"
+          - name: step level variables
+            env:   # step level variables
+              ENV_NAME: Development
+              VERSION: "1.2.2"
+            run: echo "The deployment is in $ENV_NAME and version is $VERSION"
+          - name: printing the secret variable data
+            run: echo "The secret password is $PASSWORD"
+            env:
+              PASSWORD: ${{ secrets.PASSWORD }}
+            
+  # second_job:
+  #       runs-on: ubuntu-latest
+  #       needs: first_job
+  #       steps:
+  #           - name: prnitng shell script
+  #             run: echo Hi I am Vinod"
+  #           - name: printing second shell script
+  #             run: whoami
+
+  # third_job:
+  #       runs-on: ubuntu-latest
+  #       needs: second_job
+  #       if: always ()
+  #       steps:
+  #           - name: prnitng shell script
+  #             run: echo "Hi I am Vinod"
+  #           - name: printing second shell script
+  #             run: whoami
+     
+    
+            
