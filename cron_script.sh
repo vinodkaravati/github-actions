@@ -6,5 +6,5 @@ base_name="Cron_Report"
 # Create final filename
 filename="${base_name}_${timestamp}.txt"
 # Create the file (or write to it)
-# echo "Generated at $timestamp" > "$filename"
+echo "Generated at $timestamp" > "$filename"
 echo "HI I am vinod"
